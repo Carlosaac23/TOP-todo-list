@@ -1,3 +1,3 @@
 # Todo List
 
-A project from [TOP](https://www.theodinproject.com/lessons/node-path-javascript-todo-list)
+A project from [Tthe Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-todo-list)
