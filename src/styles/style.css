@@ -5,12 +5,12 @@
 
 @font-face {
   font-family: Inter;
-  src: url('./fonts/Inter-Regular.woff2') format('woff2');
+  src: url('../fonts/Inter-Regular.woff2') format('woff2');
 }
 
 @font-face {
   font-family: Inter-Bold;
-  src: url('./fonts/Inter-Bold.woff2') format('woff2');
+  src: url('../fonts/Inter-Bold.woff2') format('woff2');
 }
 
 *,
@@ -24,6 +24,12 @@ body {
   color: var(--font-color);
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 16px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 #header header {
@@ -42,6 +48,21 @@ body {
   font-family: Inter-Bold;
   font-size: 2.5rem;
   text-align: center;
+}
+
+.tasks-list {
+  background-color: green;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 10px;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid red;
+  border-radius: 6px;
+  width: 170px;
 }
 
 #footer {
