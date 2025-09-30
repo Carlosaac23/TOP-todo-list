@@ -1,7 +1,7 @@
 import TasksList from './TasksList';
 import EditForm from './EditForm';
 import { deleteTask } from '../services/TodoService';
-import { formatDate } from '../utils/formatDate';
+import { formatDate } from '../utils/domUtils';
 
 export default function TaskInfo(task) {
   const { id, title, description, dueDate, priority, checked } = task;
@@ -15,10 +15,8 @@ export default function TaskInfo(task) {
     <p>${description}</p>
     <p>${formatDate(dueDate)}</p>
     <p>${priority}</p>
-    <input name="${id}_checked" id="${id}_checked" type="checkbox" ${
-    checked ? 'checked' : ''
-  }>
-    <label for="${id}_checked">Completed</label>
+    <input name="${id}" id="${id}" type="checkbox" ${checked ? 'checked' : ''}>
+    <label for="${id}">Completed</label>
 
     <div class="card__dialog-buttons">
       <button class="dialog__button" id="edit">Edit</button>
@@ -45,5 +43,8 @@ export default function TaskInfo(task) {
   const editBtn = dialog.querySelector('#edit');
   editBtn.addEventListener('click', () => {
     EditForm({ id, title, description, dueDate, priority, checked });
+
+    dialog.close();
+    dialog.remove();
   });
 }
