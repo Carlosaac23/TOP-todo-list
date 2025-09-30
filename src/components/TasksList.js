@@ -1,7 +1,7 @@
-import TodoItem from './TodoItem';
+import TaskItem from './TaskItem';
 import { getTasks } from '../services/TodoService';
 
-export default function TodoList() {
+export default function TasksList() {
   const todoListContainer = document.getElementById('tasks-list');
   const todoList = document.createElement('ul');
   todoList.classList.add('tasks-list');
@@ -10,9 +10,9 @@ export default function TodoList() {
 
   console.log(tasks);
   tasks.forEach(task => {
-    const { title, description, dueDate, priority, checked } = task;
+    const { id, title, description, dueDate, priority, checked } = task;
 
-    const item = TodoItem(title, description, dueDate, priority, checked);
+    const item = TaskItem(id, title, description, dueDate, priority, checked);
 
     todoList.appendChild(item);
   });
