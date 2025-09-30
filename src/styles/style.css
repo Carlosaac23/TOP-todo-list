@@ -55,7 +55,7 @@ button:hover {
   text-align: center;
 }
 
-.tasks-list {
+#tasks-container {
   background-color: #cccccc;
   display: flex;
   flex-wrap: wrap;
