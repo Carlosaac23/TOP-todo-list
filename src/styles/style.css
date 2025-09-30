@@ -32,10 +32,15 @@ ul {
   margin: 0;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 #header header {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 20px 0;
 }
 
 #header img {
@@ -51,7 +56,7 @@ ul {
 }
 
 .tasks-list {
-  background-color: green;
+  background-color: #cccccc;
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
@@ -59,10 +64,62 @@ ul {
 }
 
 .card {
+  background-color: var(--bg-color);
   padding: 20px;
-  border: 1px solid red;
+  border: 1px solid #cccccc;
   border-radius: 6px;
   width: 170px;
+}
+
+.card label {
+  font-size: 0.9rem;
+}
+
+#card-button {
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  width: 100%;
+}
+
+#card-button:hover {
+  cursor: pointer;
+}
+
+.card__dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  padding: 20px;
+  width: 600px;
+  height: 500px;
+}
+
+#close-dialog {
+  float: right;
+}
+
+#close-dialog:hover {
+  cursor: pointer;
+}
+
+.card__dialog-buttons {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  gap: 30px;
+}
+
+.dialog__button {
+  border: none;
+  border-radius: 6px;
+}
+
+.dialog__button:hover {
+  cursor: pointer;
 }
 
 #footer {
