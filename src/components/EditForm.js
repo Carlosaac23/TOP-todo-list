@@ -1,6 +1,5 @@
 import TasksList from './TasksList';
 import { editTask } from '../services/TodoService';
-import { renderToast } from '../utils/domUtils';
 
 export default function EditForm(task) {
   console.log(task);
