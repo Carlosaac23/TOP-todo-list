@@ -1,3 +1,4 @@
+import { renderToast } from '../utils/domUtils';
 import { saveToLocalStorage } from './StorageService';
 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -5,6 +6,8 @@ let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 export function addTask(task) {
   tasks.push(task);
   saveToLocalStorage('tasks', tasks);
+
+  renderToast('Task added successfully', 'green');
 }
 
 export function getTasks() {
@@ -12,15 +15,19 @@ export function getTasks() {
 }
 
 export function deleteTask(id) {
-  tasks = tasks.filter(task => task.id !== id);
-  saveToLocalStorage('tasks', tasks);
+  const question = confirm('Are you sure you want to delete this task?');
+
+  if (question) {
+    tasks = tasks.filter(task => task.id !== id);
+    saveToLocalStorage('tasks', tasks);
+  }
+
+  renderToast('Tasks deleted successfully', 'green');
 }
 
 export function editTask(updatedTask) {
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  tasks = tasks.map(task => (task.id === updatedTask.id ? updatedTask : task));
+  saveToLocalStorage('tasks', tasks);
 
-  const newTasks = tasks.map(task =>
-    task.id === updatedTask.id ? updatedTask : task
-  );
-  saveToLocalStorage('tasks', newTasks);
+  renderToast('Tasks updated successfully', 'green');
 }
