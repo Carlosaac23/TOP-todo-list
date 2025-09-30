@@ -1,6 +1,6 @@
 import { saveToLocalStorage } from './StorageService';
 
-export let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 export function addTask(task) {
   tasks.push(task);
