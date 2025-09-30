@@ -1,5 +1,5 @@
 import Task from '../models/Task';
-import TodoList from './TodoList';
+import TasksList from './TasksList';
 import Toastify from 'toastify-js';
 import { addTask } from '../services/TodoService';
 
@@ -52,7 +52,7 @@ export default function TaskForm() {
 
     addTask(newTask);
     dialog.close();
-    TodoList();
+    TasksList();
     form.reset();
   });
 }
