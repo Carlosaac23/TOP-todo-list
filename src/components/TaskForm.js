@@ -1,7 +1,7 @@
 import Task from '../models/Task';
 import TasksList from './TasksList';
-import Toastify from 'toastify-js';
 import { addTask } from '../services/TodoService';
+import { renderToast } from '../utils/domUtils';
 
 export default function TaskForm() {
   const addTaskBtn = document.getElementById('add-task');
@@ -29,6 +29,18 @@ export default function TaskForm() {
       'input[name="priority"]:checked'
     ).value;
 
+    if (taskTitle === '') {
+      return renderToast('The title is mandatory', 'red');
+    }
+
+    if (taskDescription === '') {
+      return renderToast('The description is mandatory', 'red');
+    }
+
+    if (taskDueDate === '') {
+      return renderToast('The deadline is mandatory', 'red');
+    }
+
     const newTask = new Task(
       id,
       taskTitle,
@@ -36,19 +48,6 @@ export default function TaskForm() {
       taskDueDate,
       taskPriority
     );
-
-    Toastify({
-      text: 'Task added successfully',
-      duration: 4000,
-      gravity: 'bottom',
-      position: 'right',
-      style: {
-        background: '#eeffef',
-        border: '1px solid #003308',
-        'border-radius': '6px',
-        color: '#003308',
-      },
-    }).showToast();
 
     addTask(newTask);
     dialog.close();
