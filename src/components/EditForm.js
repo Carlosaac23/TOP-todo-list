@@ -1,5 +1,6 @@
-import TasksList from './TasksList';
 import { editTask } from '../services/TodoService';
+import { renderToast } from '../utils/domUtils';
+import TasksList from './TasksList';
 
 export default function EditForm(task) {
   console.log(task);
@@ -74,6 +75,7 @@ export default function EditForm(task) {
       checked,
     };
 
+    renderToast('Task updated successfully', 'blue');
     editTask(updatedTask);
     TasksList();
     dialog.close();
