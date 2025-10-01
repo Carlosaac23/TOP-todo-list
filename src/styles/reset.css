@@ -73,3 +73,11 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+/* 11. Remove all spaces for ul and ol */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
