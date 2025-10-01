@@ -1,6 +1,6 @@
 import { editTask, getTasks, deleteTask } from '../services/TodoService';
 import { renderToast, capitalizeWord } from '../utils/domUtils';
-import TaskDialog from './TaskDialog';
+import TaskDialog from './TaskDialog/TaskDialog';
 import TasksList from './TasksList';
 import moreIcon from '../icons/more.svg';
 import checkIcon from '../icons/check.svg';
