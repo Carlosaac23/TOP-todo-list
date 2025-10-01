@@ -329,6 +329,9 @@ main {
   border-radius: 6px;
   min-height: 100px;
   margin-bottom: 6px;
+
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .card__dialog-close {
