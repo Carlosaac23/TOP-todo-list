@@ -13,19 +13,25 @@
     <div id="header"></div>
 
     <main>
-      <button id="add-task">Add Task</button>
+      <button id="add__task-button">Add Task</button>
 
-      <dialog id="dialog">
-        <p id="close-btn">X</p>
-        <form id="form">
-          <label for="title">Title</label>
-          <input type="text" name="title" id="title" />
+      <dialog id="add__task-dialog">
+        <button id="add__task-close">X</button>
+        <form id="add__task-form">
+          <div class="form-row">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" />
+          </div>
 
-          <label for="decription">Description</label>
-          <textarea name="description" id="description"></textarea>
+          <div class="form-row">
+            <label for="decription">Description</label>
+            <textarea name="description" id="description" rows="5"></textarea>
+          </div>
 
-          <label for="due-date">Due Date</label>
-          <input type="date" name="due-date" id="due-date" />
+          <div class="form-row">
+            <label for="due-date">Due Date</label>
+            <input type="date" name="due-date" id="due-date" />
+          </div>
 
           <fieldset>
             <legend>Priority</legend>
@@ -46,7 +52,7 @@
             <label for="low">Low</label>
           </fieldset>
 
-          <button>Add</button>
+          <button class="form__add-button">Add</button>
         </form>
       </dialog>
 
