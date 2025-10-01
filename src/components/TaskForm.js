@@ -4,10 +4,10 @@ import { addTask } from '../services/TodoService';
 import { renderToast } from '../utils/domUtils';
 
 export default function TaskForm() {
-  const addTaskBtn = document.getElementById('add-task');
-  const closeDialog = document.getElementById('close-btn');
-  const dialog = document.getElementById('dialog');
-  const form = document.getElementById('form');
+  const addTaskBtn = document.getElementById('add__task-button');
+  const closeDialog = document.getElementById('add__task-close');
+  const dialog = document.getElementById('add__task-dialog');
+  const form = document.getElementById('add__task-form');
 
   addTaskBtn.addEventListener('click', () => {
     dialog.showModal();
@@ -49,6 +49,7 @@ export default function TaskForm() {
       taskPriority
     );
 
+    renderToast('Task created successfully', 'green');
     addTask(newTask);
     dialog.close();
     TasksList();
