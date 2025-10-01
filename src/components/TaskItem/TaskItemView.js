@@ -7,7 +7,6 @@ import undoIcon from '../../icons/undo.svg';
 export default function TaskItemView(taskData) {
   const { title, dueDate, priority, checked } = taskData;
   const priorityLevel = getPriorityClass(priority);
-  console.log(checked);
 
   const card = document.createElement('li');
   card.classList.add('card');

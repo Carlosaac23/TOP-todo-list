@@ -3,7 +3,6 @@ import { renderToast } from '../utils/domUtils';
 import TasksList from './TasksList';
 
 export default function EditForm(task) {
-  console.log(task);
   const { id, title, description, dueDate, priority, checked } = task;
 
   const dialog = document.createElement('dialog');

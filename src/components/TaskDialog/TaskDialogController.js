@@ -6,7 +6,6 @@ import EditForm from '../EditForm';
 export default class TaskDialogController {
   constructor(dialog, task) {
     this.dialog = dialog;
-    console.log(task);
     this.task = task;
     this.initializeEventListener();
   }
