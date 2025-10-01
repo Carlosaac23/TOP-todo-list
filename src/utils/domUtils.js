@@ -25,13 +25,25 @@ function renderToast(message, type) {
     color: '#00a720',
   };
 
+  const blueStyle = {
+    background: '#eff9ff',
+    border: '1px solid #0083d4',
+    'border-radius': '6px',
+    color: '#0083d4',
+  };
+
   Toastify({
     text: message,
-    duration: 4000,
+    duration: 3000,
     gravity: 'bottom',
     position: 'right',
-    style: type === 'green' ? greenStyle : redStyle,
+    style:
+      type === 'green' ? greenStyle : type === 'blue' ? blueStyle : redStyle,
   }).showToast();
 }
 
-export { formatDate, renderToast };
+function capitalizeWord(word) {
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
+export { formatDate, renderToast, capitalizeWord };
