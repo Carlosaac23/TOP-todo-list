@@ -1,12 +1,10 @@
-import TaskItem from './TaskItem';
+import TaskItem from './TaskItem/TaskItem';
 import { getTasks } from '../services/TodoService';
 
 export default function TasksList() {
   const tasksContainer = document.getElementById('tasks-container');
   tasksContainer.innerHTML = '';
   const tasks = getTasks();
-
-  console.log(tasks);
 
   if (tasks.length === 0) {
     tasksContainer.textContent = 'There are no tasks.';
