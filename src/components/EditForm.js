@@ -7,18 +7,25 @@ export default function EditForm(task) {
   const { id, title, description, dueDate, priority, checked } = task;
 
   const dialog = document.createElement('dialog');
+  dialog.classList.add('edit__form');
   dialog.innerHTML = `
-    <button id="close-dialog">Close</button>
+    <button id="edit__close-dialog">Close</button>
 
-    <form id="form">
-      <label for="title">Title</label>
-      <input type="text" name="title" id="title" value="${title}" />
+    <form id="edit__form-form">
+      <div class="form-row">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="${title}" />
+      </div>
 
-      <label for="decription">Description</label>
-      <textarea name="description" id="description">${description}</textarea>
+      <div class="form-row">
+        <label for="decription">Description</label>
+        <textarea name="description" id="description" rows="5">${description}</textarea>
+      </div>
 
-      <label for="due-date">Due Date</label>
-      <input type="date" name="due-date" id="due-date" value="${dueDate}" />
+      <div class="form-row">
+        <label for="due-date">Due Date</label>
+        <input type="date" name="due-date" id="due-date" value="${dueDate}" />
+      </div>
 
       <fieldset>
         <legend>Priority</legend>
@@ -51,19 +58,19 @@ export default function EditForm(task) {
         <label for="low-${id}">Low</label>
       </fieldset>
 
-      <button>Update</button>
+      <button class="edit__form-button">Update</button>
     </form>
   `;
 
   document.body.appendChild(dialog);
   dialog.showModal();
 
-  dialog.querySelector('#close-dialog').addEventListener('click', () => {
+  dialog.querySelector('#edit__close-dialog').addEventListener('click', () => {
     dialog.close();
     dialog.remove();
   });
 
-  dialog.querySelector('#form').addEventListener('submit', e => {
+  dialog.querySelector('#edit__form-form').addEventListener('submit', e => {
     e.preventDefault();
 
     const updatedTask = {
