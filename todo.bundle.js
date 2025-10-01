@@ -1,0 +1,1 @@
+(()=>{"use strict";JSON.parse(localStorage.getItem("tasks"))})();
