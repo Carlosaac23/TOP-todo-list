@@ -1,4 +1,8 @@
 :root {
+  --header: 5rem;
+  --footer: 40px;
+  --main: calc(100vh - calc(var(--header) + var(--footer)));
+
   --bg-color: #fafafa;
   --font-color: #1f1f1f;
   --border-color: #d4d4d4;
@@ -40,11 +44,16 @@ body {
   font-size: 16px;
 }
 
-#header header {
+main {
+  height: var(--main);
+}
+
+#header {
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 20px 0;
+  height: var(--header);
 }
 
 #header img {
@@ -395,16 +404,76 @@ body {
   transform: scale(0.97);
 }
 
+.edit__form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 20px;
+  width: 600px;
+}
+
+#edit__close-dialog {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  background-color: var(--light-red);
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 6px;
+  padding: 4px 12px;
+  transition: transform 0.15s ease-out;
+}
+
+#edit__close-dialog:hover {
+  cursor: pointer;
+}
+
+#edit__close-dialog:active {
+  transform: scale(0.97);
+}
+
+#edit__form-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#edit__form-form fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.edit__form-button {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 6px;
+  transition: transform 0.15s ease-out;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.edit__form-button:hover {
+  cursor: pointer;
+}
+
+.edit__form-button:active {
+  transform: scale(0.97);
+}
+
 #footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  height: var(--footer);
 }
 
 #footer p {
   text-align: center;
-margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #footer a {
