@@ -77,7 +77,9 @@ export default function TodoItem(...props) {
 
   if (checked) {
     moreInfoBtn.disabled = true;
+    moreInfoBtn.style.cursor = 'initial';
     doneBtn.disabled = true;
+    doneBtn.style.cursor = 'initial';
   }
 
   const deleteBtn = card.querySelector('#delete-button');
