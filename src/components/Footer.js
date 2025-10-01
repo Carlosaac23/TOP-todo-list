@@ -10,7 +10,7 @@ export default function Footer() {
         rel="noopener noreferrer"
         >Carlos Acosta.</a
       >
-      Derechos Reservados ${ACTUAL_DATE}
+      All rights reserved ${ACTUAL_DATE}
     </p>
   `;
 }
