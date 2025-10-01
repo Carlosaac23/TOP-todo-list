@@ -4,6 +4,10 @@ import deleteIcon from '../../icons/delete.svg';
 import doneIcon from '../../icons/check.svg';
 
 export default function TaskDialogView(task) {
+  if (!task) {
+    throw new Error('TaskDialogView: No task data');
+  }
+
   const { title, description, dueDate, priority } = task;
   const priorityLevel = getPriorityClass(priority);
 
@@ -40,7 +44,7 @@ export default function TaskDialogView(task) {
 }
 
 function getPriorityClass(priority) {
-  priority === 'high'
+  return priority === 'high'
     ? 'card__priority-high'
     : priority === 'medium'
     ? 'card__priority-medium'
