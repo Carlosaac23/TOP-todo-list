@@ -1,6 +1,20 @@
 :root {
-  --bg-color: #ededed;
+  --bg-color: #fafafa;
   --font-color: #1f1f1f;
+  --border-color: #d4d4d4;
+
+  --blue: #0eaae9;
+  --light-blue: #eff9ff;
+  --dark-blue: #075c85;
+  --green: #00a720;
+  --light-green: #eeffef;
+  --dark-green: #00691a;
+  --red: #e11d3a;
+  --light-red: #fff1f1;
+  --dark-red: #9f122f;
+  --yellow: #d96f06;
+  --light-yellow: #fff9e6;
+  --dark-yellow: #923b0e;
 }
 
 @font-face {
@@ -26,16 +40,6 @@ body {
   font-size: 16px;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
 #header header {
   display: flex;
   align-items: center;
@@ -55,34 +59,242 @@ button:hover {
   text-align: center;
 }
 
+#add__task-button {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin: 16px 30px;
+}
+
+#add__task-button:hover {
+  cursor: pointer;
+}
+
+#add__task-button:active {
+  transform: scale(0.97);
+}
+
+#add__task-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 20px;
+  width: 600px;
+}
+
+#add__task-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  background-color: var(--light-red);
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 6px;
+  padding: 4px 12px;
+  transition: transform 0.15s ease-out;
+}
+
+#add__task-close:hover {
+  cursor: pointer;
+}
+
+#add__task-close:active {
+  transform: scale(0.97);
+}
+
+#add__task-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-row label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.form-row label::after {
+  content: '*';
+  color: red;
+  margin-left: 2px;
+  font-size: 0.9rem;
+}
+
+.form-row input {
+  padding: 6px;
+}
+
+.form-row textarea {
+  resize: none;
+}
+
+.form-row input,
+.form-row textarea {
+  background-color: var(--bg-color);
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding-left: 6px;
+}
+
+#add__task-form fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.form__add-button {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 6px;
+  transition: transform 0.15s ease-out;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.form__add-button:hover {
+  cursor: pointer;
+}
+
+.form__add-button:active {
+  transform: scale(0.97);
+}
+
 #tasks-container {
-  background-color: #cccccc;
+  background-color: #ededed;
   display: flex;
   flex-wrap: wrap;
-  padding: 20px;
+  padding: 30px;
   gap: 10px;
+  box-shadow: inset 0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .card {
   background-color: var(--bg-color);
-  padding: 20px;
-  border: 1px solid #cccccc;
+  padding: 16px;
+  border: 1px solid #d4d4d4;
   border-radius: 6px;
-  width: 170px;
+  width: 250px;
+  transition: filter 0.15s ease-out;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.card-priority {
+  margin: 8px 0;
+}
+
+.card__priority-high {
+  background-color: var(--light-red);
+  color: var(--red);
+  font-weight: bold;
+  padding: 2px 16px;
+  border: 1px solid var(--red);
+  border-radius: 6px;
+}
+
+.card__priority-medium {
+  background-color: var(--light-yellow);
+  color: var(--yellow);
+  font-weight: bold;
+  padding: 2px 16px;
+  border: 1px solid var(--yellow);
+  border-radius: 6px;
+}
+
+.card__priority-low {
+  background-color: var(--light-blue);
+  color: var(--blue);
+  font-weight: bold;
+  padding: 2px 16px;
+  border: 1px solid var(--blue);
+  border-radius: 6px;
 }
 
 .card label {
   font-size: 0.9rem;
 }
 
-#card-button {
-  border: 1px solid #cccccc;
-  border-radius: 6px;
-  width: 100%;
+.card.done #card-content {
+  filter: blur(3px);
 }
 
-#card-button:hover {
+#card-content {
+  margin-bottom: 10px;
+}
+
+#card__buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+#more-button,
+#done-button,
+#delete-button,
+#undo-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 6px;
+  width: 100%;
+  transition: transform 0.15s ease-out;
+}
+
+#more-button img,
+#done-button img,
+#delete-button img,
+#undo-button img {
+  width: 20px;
+}
+
+#more-button:hover,
+#done-button:hover,
+#delete-button:hover,
+#undo-button:hover {
   cursor: pointer;
+}
+
+#more-button:active,
+#done-button:active,
+#delete-button:active,
+#undo-button:active {
+  transform: scale(0.97);
+}
+
+#more-button {
+  border: 1px solid var(--blue);
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+}
+
+#done-button {
+  border: 1px solid var(--green);
+  background-color: var(--light-green);
+  color: var(--dark-green);
+}
+
+#card__buttons-two {
+  display: flex;
+  gap: 8px;
+}
+
+#delete-button {
+  border: 1px solid var(--red);
+  background-color: var(--light-red);
+  color: var(--dark-red);
+}
+
+#undo-button {
+  border: 1px solid var(--blue);
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
 }
 
 .card__dialog {
@@ -91,35 +303,96 @@ button:hover {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  border: 1px solid #cccccc;
+  border: 1px solid var(--border-color);
   border-radius: 6px;
   padding: 20px;
   width: 600px;
   height: 500px;
 }
 
-#close-dialog {
-  float: right;
+.card__dialog-title {
+  font-size: 2.2rem;
 }
 
-#close-dialog:hover {
+.card__dialog-description {
+  background-color: var(--bg-color);
+  padding: 10px;
+  border-radius: 6px;
+  min-height: 100px;
+  margin-bottom: 6px;
+}
+
+.card__dialog-close {
+  float: right;
+  background-color: var(--light-red);
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 6px;
+  padding: 4px 16px;
+  transition: transform 0.15s ease-out;
+}
+
+.card__dialog-close:hover {
   cursor: pointer;
+}
+
+.card__dialog-close:active {
+  transform: scale(0.97);
 }
 
 .card__dialog-buttons {
   position: absolute;
   bottom: 20px;
   display: flex;
-  gap: 30px;
+  gap: 16px;
 }
 
-.dialog__button {
-  border: none;
+.dialog__button-edit,
+.dialog__button-delete,
+.dialog__button-done {
+  display: flex;
+  gap: 10px;
+  align-items: center;
   border-radius: 6px;
+  width: 100%;
+  transition: transform 0.15s ease-out;
+  padding: 2px 16px;
 }
 
-.dialog__button:hover {
+.dialog__button-edit {
+  border: 1px solid var(--blue);
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+}
+
+.dialog__button-delete {
+  border: 1px solid var(--red);
+  background-color: var(--light-red);
+  color: var(--dark-red);
+}
+
+.dialog__button-done {
+  border: 1px solid var(--green);
+  background-color: var(--light-green);
+  color: var(--green);
+}
+
+.dialog__button-edit img,
+.dialog__button-delete img,
+.dialog__button-done img {
+  width: 20px;
+}
+
+.dialog__button-edit:hover,
+.dialog__button-delete:hover,
+.dialog__button-done:hover {
   cursor: pointer;
+}
+
+.dialog__button-edit:active,
+.dialog__button-delete:active,
+.dialog__button-done:active {
+  transform: scale(0.97);
 }
 
 #footer {
@@ -131,6 +404,7 @@ button:hover {
 
 #footer p {
   text-align: center;
+margin-bottom: 10px;
 }
 
 #footer a {
