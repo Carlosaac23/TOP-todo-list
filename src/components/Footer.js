@@ -2,8 +2,7 @@ export default function Footer() {
   const ACTUAL_DATE = new Date().getFullYear();
 
   const footerContainer = document.getElementById('footer');
-  const footer = document.createElement('footer');
-  footer.innerHTML = `
+  footerContainer.innerHTML = `
     <p>
       <a
         href="https://x.com/Carlosaac23"
@@ -14,6 +13,4 @@ export default function Footer() {
       Derechos Reservados ${ACTUAL_DATE}
     </p>
   `;
-
-  footerContainer.appendChild(footer);
 }

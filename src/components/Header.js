@@ -1,7 +1,6 @@
 export default function Header() {
   const headerContainer = document.getElementById('header');
-  const header = document.createElement('header');
-  header.innerHTML = `
+  headerContainer.innerHTML = `
     <h1>Todo List</h1>
     <a
       href="https://github.com/Carlosaac23"
@@ -14,6 +13,4 @@ export default function Header() {
       />
     </a>
   `;
-
-  headerContainer.appendChild(header);
 }
