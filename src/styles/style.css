@@ -82,7 +82,7 @@ main {
   transform: scale(0.97);
 }
 
-#add__task-dialog {
+.add__task-dialog {
   position: absolute;
   top: 50%;
   left: 50%;
