@@ -1,7 +1,7 @@
 import { deleteTask, editTask, getTasks } from '../../services/TodoService';
 import { renderToast } from '../../utils/domUtils';
 import TasksList from '../TasksList';
-import EditForm from '../EditForm';
+import EditForm from '../EditForm/EditForm';
 
 export default class TaskDialogController {
   constructor(dialog, task) {
