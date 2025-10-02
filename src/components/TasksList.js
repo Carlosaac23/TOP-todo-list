@@ -1,5 +1,5 @@
 import TaskItem from './TaskItem/TaskItem';
-import { getTasks } from '../services/TodoService';
+import { getTasks } from '../services/TaskServices';
 
 export default function TasksList() {
   const tasksContainer = document.getElementById('tasks-container');

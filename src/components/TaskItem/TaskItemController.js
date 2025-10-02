@@ -1,4 +1,4 @@
-import { editTask, getTasks, deleteTask } from '../../services/TodoService';
+import { editTask, getTasks, deleteTask } from '../../services/TaskServices';
 import { renderToast } from '../../utils/domUtils';
 import TasksList from '../TasksList';
 import TaskDialog from '../TaskDialog/TaskDialog';
