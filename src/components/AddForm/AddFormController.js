@@ -27,7 +27,6 @@ export default class AddFormController {
 
   closeDialog() {
     this.dialog.close();
-    this.dialog.remove();
   }
 
   handleSubmit(e) {
