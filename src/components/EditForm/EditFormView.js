@@ -1,15 +1,10 @@
-import { editTask } from '../services/TodoService';
-import { renderToast } from '../utils/domUtils';
-import TasksList from './TasksList';
-
-export default function EditForm(task) {
-  const { id, title, description, dueDate, priority, checked } = task;
+export default function EditFormView(task) {
+  const { id, title, description, dueDate, priority } = task;
 
   const dialog = document.createElement('dialog');
   dialog.classList.add('edit__form');
   dialog.innerHTML = `
     <button id="edit__close-dialog">Close</button>
-
     <form id="edit__form-form">
       <div class="form-row">
         <label for="title">Title</label>
@@ -61,30 +56,5 @@ export default function EditForm(task) {
     </form>
   `;
 
-  document.body.appendChild(dialog);
-  dialog.showModal();
-
-  dialog.querySelector('#edit__close-dialog').addEventListener('click', () => {
-    dialog.close();
-    dialog.remove();
-  });
-
-  dialog.querySelector('#edit__form-form').addEventListener('submit', e => {
-    e.preventDefault();
-
-    const updatedTask = {
-      id,
-      title: dialog.querySelector('#title').value,
-      description: dialog.querySelector('#description').value,
-      dueDate: dialog.querySelector('#due-date').value,
-      priority: dialog.querySelector('input[name="priority"]:checked').value,
-      checked,
-    };
-
-    renderToast('Task updated successfully', 'blue');
-    editTask(updatedTask);
-    TasksList();
-    dialog.close();
-    dialog.remove();
-  });
+  return dialog;
 }
