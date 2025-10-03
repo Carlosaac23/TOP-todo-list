@@ -1,10 +1,13 @@
-import { deleteTask, editTask, getTasks } from '../../services/TaskServices';
-import { renderToast } from '../../utils/domUtils';
-import TasksList from '../TasksList';
-import EditForm from '../EditForm/EditForm';
+import { deleteTask, editTask, getTasks } from '@/services/TaskServices';
+import { renderToast } from '@/utils/domUtils';
+import type { TaskType } from '@/types/task';
+import TasksList from '@/components/TasksList';
+import EditForm from '@/components/EditForm/EditForm';
 
 export default class TaskDialogController {
-  constructor(dialog, task) {
+  dialog: HTMLDialogElement;
+  task: TaskType;
+  constructor(dialog: HTMLDialogElement, task: TaskType) {
     this.dialog = dialog;
     this.task = task;
     this.initializeEventListener();
@@ -46,7 +49,7 @@ export default class TaskDialogController {
 
   handleDone() {
     const tasks = getTasks();
-    const task = tasks.find(task => task.id === this.task.id);
+    const task = tasks.find((task: TaskType) => task.id === this.task.id);
     task.checked = !task.checked;
 
     renderToast('¡Task completed!', 'green');

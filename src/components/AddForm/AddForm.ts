@@ -1,5 +1,5 @@
-import AddFormView from './AddFormView';
-import AddFormController from './AddFormController';
+import AddFormView from '@/components/AddForm/AddFormView';
+import AddFormController from '@/components/AddForm/AddFormController';
 
 export default function AddForm() {
   const form = AddFormView();

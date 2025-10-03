@@ -1,4 +1,4 @@
-function saveToLocalStorage(name, item) {
+function saveToLocalStorage(name: string, item: string[]) {
   localStorage.setItem(name, JSON.stringify(item));
 }
 

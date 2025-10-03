@@ -1,10 +1,11 @@
-import { addTask } from '../../services/TaskServices';
-import { renderToast } from '../../utils/domUtils';
-import Task from '../../models/Task';
-import TasksList from '../TasksList';
+import { addTask } from '@/services/TaskServices';
+import { renderToast } from '@/utils/domUtils';
+import Task from '@/models/Task';
+import TasksList from '@/components/TasksList';
 
 export default class AddFormController {
-  constructor(dialog) {
+  dialog: HTMLDialogElement;
+  constructor(dialog: HTMLDialogElement) {
     this.dialog = dialog;
     const addTaskBtn = document.getElementById('add__task-button');
     const closeDialog = document.getElementById('add__task-close');
@@ -30,16 +31,23 @@ export default class AddFormController {
     this.dialog.remove();
   }
 
-  handleSubmit(e) {
+  handleSubmit(e: Event) {
     e.preventDefault();
 
     const id = crypto.randomUUID();
 
-    const taskTitle = this.dialog.querySelector('#title').value;
-    const taskDescription = this.dialog.querySelector('#description').value;
-    const taskDueDate = this.dialog.querySelector('#due-date').value;
-    const taskPriority = this.dialog.querySelector(
-      'input[name="priority"]:checked'
+    const taskTitle = (this.dialog.querySelector('#title') as HTMLInputElement)
+      .value;
+    const taskDescription = (
+      this.dialog.querySelector('#description') as HTMLInputElement
+    ).value;
+    const taskDueDate = (
+      this.dialog.querySelector('#due-date') as HTMLInputElement
+    ).value;
+    const taskPriority = (
+      this.dialog.querySelector(
+        'input[name="priority"]:checked'
+      ) as HTMLInputElement
     ).value;
 
     if (taskTitle === '') {
@@ -66,6 +74,6 @@ export default class AddFormController {
     addTask(newTask);
     this.closeDialog();
     TasksList();
-    this.dialog.querySelector('#add__task-form').reset();
+    (this.dialog.querySelector('#add__task-form') as HTMLFormElement).reset();
   }
 }
