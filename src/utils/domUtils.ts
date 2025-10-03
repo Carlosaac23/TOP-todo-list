@@ -1,6 +1,6 @@
 import Toastify from 'toastify-js';
 
-function formatDate(dateString) {
+function formatDate(dateString: string) {
   const date = new Date(dateString);
   return date.toLocaleDateString('en-US', {
     weekday: 'long',
@@ -10,7 +10,7 @@ function formatDate(dateString) {
   });
 }
 
-function renderToast(message, type) {
+function renderToast(message: string, type: string) {
   const redStyle = {
     background: '#fff1f1',
     border: '1px solid #ed1515',
@@ -42,7 +42,7 @@ function renderToast(message, type) {
   }).showToast();
 }
 
-function capitalizeWord(word) {
+function capitalizeWord(word: string) {
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }
 

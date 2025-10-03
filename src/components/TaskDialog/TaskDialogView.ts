@@ -1,9 +1,10 @@
-import { formatDate, capitalizeWord } from '../../utils/domUtils';
-import editIcon from '../../icons/edit.svg';
-import deleteIcon from '../../icons/delete.svg';
-import doneIcon from '../../icons/check.svg';
+import { formatDate, capitalizeWord } from '@/utils/domUtils';
+import type { TaskType } from '@/types/task';
+import editIcon from '@/icons/edit.svg';
+import deleteIcon from '@/icons/delete.svg';
+import doneIcon from '@/icons/check.svg';
 
-export default function TaskDialogView(task) {
+export default function TaskDialogView(task: TaskType) {
   if (!task) {
     throw new Error('TaskDialogView: No task data');
   }
@@ -43,7 +44,7 @@ export default function TaskDialogView(task) {
   return dialog;
 }
 
-function getPriorityClass(priority) {
+function getPriorityClass(priority: string) {
   return priority === 'high'
     ? 'card__priority-high'
     : priority === 'medium'

@@ -1,4 +1,6 @@
-export default function EditFormView(task) {
+import type { TaskType } from '@/types/task';
+
+export default function EditFormView(task: TaskType) {
   const { id, title, description, dueDate, priority } = task;
 
   const dialog = document.createElement('dialog');

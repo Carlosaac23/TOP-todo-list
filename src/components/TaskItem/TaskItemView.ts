@@ -1,10 +1,11 @@
-import { capitalizeWord } from '../../utils/domUtils';
-import moreIcon from '../../icons/more.svg';
-import checkIcon from '../../icons/check.svg';
-import deleteIcon from '../../icons/delete.svg';
-import undoIcon from '../../icons/undo.svg';
+import { capitalizeWord } from '@/utils/domUtils';
+import type { TaskType } from '@/types/task';
+import moreIcon from '@/icons/more.svg';
+import checkIcon from '@/icons/check.svg';
+import deleteIcon from '@/icons/delete.svg';
+import undoIcon from '@/icons/undo.svg';
 
-export default function TaskItemView(taskData) {
+export default function TaskItemView(taskData: TaskType) {
   const { title, dueDate, priority, checked } = taskData;
   const priorityLevel = getPriorityClass(priority);
 
@@ -53,7 +54,7 @@ export default function TaskItemView(taskData) {
   return card;
 }
 
-function getPriorityClass(priority) {
+function getPriorityClass(priority: string) {
   return priority === 'high'
     ? 'card__priority-high'
     : priority === 'medium'

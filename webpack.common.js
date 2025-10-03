@@ -1,11 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './src/index.js',
-    todo: './src/services/TaskServices.js',
-    storage: './src/services/StorageService.js',
+    main: './src/index.ts',
+    todo: './src/services/TaskServices.ts',
+    storage: './src/services/StorageService.ts',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -36,6 +37,18 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+    plugins: [new TsconfigPathsPlugin()],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
 };
